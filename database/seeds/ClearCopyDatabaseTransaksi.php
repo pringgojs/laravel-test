@@ -25,18 +25,18 @@ class ClearCopyDatabaseTransaksi extends Seeder
     {
         $list_tabel_transaksi = [
             'transaksi_detail_usulan',
-            // 'transaksi_penilai_usulan',
-            // 'transaksi_penilai_usulan_copy',
-            // 'transaksi_usulan',
-            // 'transaksi_verifikator_penilai_usulan',
-            // 'transaksi_verifikator_penilai_usulan_distinct',
-            // 'usulan_perbulan',
-            // 'data_kti_guru',
-            // 'data_pak_guru',
-            // 'data_penilaian_final_kti_guru',
-            // 'data_penilaian_final_pak_guru',
-            // 'data_penilaian_kti_guru',
-            // 'data_surat_permintaan_kelengkapan',
+            'transaksi_penilai_usulan',
+            'transaksi_penilai_usulan_copy',
+            'transaksi_usulan',
+            'transaksi_verifikator_penilai_usulan',
+            'transaksi_verifikator_penilai_usulan_distinct',
+            'usulan_perbulan',
+            'data_kti_guru',
+            'data_pak_guru',
+            'data_penilaian_final_kti_guru',
+            'data_penilaian_final_pak_guru',
+            'data_penilaian_kti_guru',
+            'data_surat_permintaan_kelengkapan',
         ];
 
         \DB::beginTransaction();
