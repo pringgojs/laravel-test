@@ -5,3 +5,4 @@
 4. `php artisan db:seed --class=ResetPasswordSeeder` pada step ini jalankan nyalakan komentar tabel satu-satu. Atau bisa juga semuanya
 5. `php artisan db:seed --class=JenisPKBSeeder`
 6. `php artisan db:seed --class=JenisPKBDetailSeeder`
+7. `php artisan db:seed --class=RefAlasanSeeder`
