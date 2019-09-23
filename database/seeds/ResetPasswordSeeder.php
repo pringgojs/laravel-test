@@ -58,7 +58,8 @@ class ResetPasswordSeeder extends Seeder
             }
 
             $data_akun->username = $data_akun->guru->nip;
-            $data_akun->password = str_random(10);
+            $data_akun->password = $data_akun->guru->nip;
+
             $data_akun->save();
 
             $this->output->writeln('<info>------ '.++$i.'. '.$data_akun->username.' ('.$data_akun->id_akun.')</info>');
