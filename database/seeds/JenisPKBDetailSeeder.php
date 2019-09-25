@@ -12,7 +12,6 @@ class JenisPKBDetailSeeder extends Seeder
      */
     public function run()
     {
-        RefJenisPKBDetail::delete();
         RefJenisPKBDetail::truncate();
         $list_data = [
             1 => [
