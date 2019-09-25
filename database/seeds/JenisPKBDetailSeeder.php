@@ -20,10 +20,9 @@ class JenisPKBDetailSeeder extends Seeder
             ],
             2 => [
                 'Presentasi pada forum ilmiah',
-                'Hasil Penelitian (PTK)',
-                'Hasil Penelitian (Jurnal)',
+                'Hasil Penelitian/Gagasan Ilmiah Bidang Pendidikan Formal',
                 'Tinjauan Ilmiah',
-                'Tulisan Ilmiah Populer',
+                'Jurnal',
                 'Artikel gagasan ilmiah',
                 'Buku Pelajaran',
                 'Modul / Diktat',
