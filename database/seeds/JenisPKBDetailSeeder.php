@@ -12,22 +12,32 @@ class JenisPKBDetailSeeder extends Seeder
      */
     public function run()
     {
+        RefJenisPKBDetail::delete();
         RefJenisPKBDetail::truncate();
         $list_data = [
             1 => [
                 'Diklat fungsional',
-                'Kegiatan kolektif guru'
+                'Kegiatan kolektif guru',
             ],
             2 => [
                 'Presentasi pada forum ilmiah',
-                'Publikasi ilmiah atas hasil penelitian atau  gagasan ilmu di bidang pendidikan formal',
-                'Publikasi buku pelajaran, buku pengayaan, dan pedoman guru'
+                'Hasil Penelitian (PTK)',
+                'Hasil Penelitian (Jurnal)',
+                'Tinjauan Ilmiah',
+                'Tulisan Ilmiah Populer',
+                'Artikel gagasan ilmiah',
+                'Buku Pelajaran',
+                'Modul / Diktat',
+                'Buku dalam bidang pendidikan',
+                'Karya terjemahaan',
+                'Buku Pedoman Guru'
             ],
             3 => [
                 'Menemukan teknologi tepat guna',
                 'Menemukan/menciptakan karya seni',
-                'Membuat/memodifikasi alat pelajaran / peraga / praktikum',
-                'Mengikuti pengembangan penyusunan  standar, pedoman,  soal dan sejenisnya'
+                'Membuat/memodifikasi alat pelajaran/peraga',
+                'Membuat/memodifikasi alat praktikum',
+                'Mengikuti pengembangan penyusunan  standar, pedoman, soal dan sejenisnya'
             ],
         ];
 
