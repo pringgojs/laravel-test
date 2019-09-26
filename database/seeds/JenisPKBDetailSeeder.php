@@ -19,13 +19,15 @@ class JenisPKBDetailSeeder extends Seeder
                 'Kegiatan kolektif guru',
             ],
             2 => [
-                'Presentasi pada forum ilmiah',
-                'Hasil Penelitian/Gagasan Ilmiah Bidang Pendidikan Formal',
-                'Tinjauan Ilmiah',
-                'Jurnal',
-                'Artikel gagasan ilmiah',
+                'Presentasi di forum ilmiah',
+                'Laporan Hasil Penelitian',
+                'Laporan Hasil Penelitian Tindakan',
+                'Laporan Hasil Penelitian yang dimuat di Jurnal Ilmiah',
+                'Tinjauan ilmiah',
+                'Tulisan ilmiah populer',
+                'Artikel ilmiah',
                 'Buku Pelajaran',
-                'Modul / Diktat',
+                'Modul/diktat',
                 'Buku dalam bidang pendidikan',
                 'Karya terjemahaan',
                 'Buku Pedoman Guru'
@@ -35,7 +37,7 @@ class JenisPKBDetailSeeder extends Seeder
                 'Menemukan/menciptakan karya seni',
                 'Membuat/memodifikasi alat pelajaran/peraga',
                 'Membuat/memodifikasi alat praktikum',
-                'Mengikuti pengembangan penyusunan  standar, pedoman, soal dan sejenisnya'
+                'Mengikuti pengembangan penyusunan  standar, pedoman, soal, dan sejenisnya'
             ],
         ];
 
