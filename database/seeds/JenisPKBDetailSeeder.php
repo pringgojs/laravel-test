@@ -15,8 +15,14 @@ class JenisPKBDetailSeeder extends Seeder
         RefJenisPKBDetail::truncate();
         $list_data = [
             1 => [
-                'Diklat fungsional',
-                'Kegiatan kolektif guru',
+                [
+                    'nama' => 'Diklat fungsional',
+                    'nomer_alasan' => '1',
+                ],
+                [
+                    'nama' => 'Kegiatan kolektif guru',
+                    'nomer_alasan' => '1,4,17,6',
+                ],
             ],
             2 => [
                 'Presentasi di forum ilmiah',

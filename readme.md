@@ -6,3 +6,4 @@
 5. `php artisan db:seed --class=JenisPKBSeeder`
 6. `php artisan db:seed --class=JenisPKBDetailSeeder`
 7. `php artisan db:seed --class=RefAlasanSeeder`
+7. `php artisan db:seed --class=NomerAlasanPenolakanSeeder`
