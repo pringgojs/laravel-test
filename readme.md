@@ -6,3 +6,7 @@
 5. `php artisan db:seed --class=JenisPKBSeeder`
 6. `php artisan db:seed --class=JenisPKBDetailSeeder`
 7. `php artisan db:seed --class=RefAlasanSeeder`
+
+
+# Import database by cmd
+`mysql -u root -p db_dinas_simpak < ~/Downloads/simpak_okt_2019_1.sql`

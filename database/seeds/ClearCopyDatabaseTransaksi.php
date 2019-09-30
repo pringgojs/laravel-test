@@ -1,8 +1,9 @@
 <?php
 
 use App\DataPakGuru;
-use App\DataPenilaianFinalPakGuru;
 use Illuminate\Database\Seeder;
+use App\DataPenilaianFinalPakGuru;
+use Illuminate\Support\Facades\Schema;
 use Symfony\Component\Console\Output\ConsoleOutput as Output;
 
 class ClearCopyDatabaseTransaksi extends Seeder
@@ -56,6 +57,10 @@ class ClearCopyDatabaseTransaksi extends Seeder
 
         foreach ($list_tabel_transaksi as $tabel) {
             $new_tabel = $tabel.'_1';
+            if (Schema::hasTable($new_tabel)) {
+                info($new_tabel);
+                continue;
+            }
             \DB::statement('create table '.$new_tabel.' SELECT * from '.$tabel);
             $this->output->writeln('<info>copied '. $tabel.'</info>');
             $this->output->writeln('<info>deleted '. $tabel.'</info>');
