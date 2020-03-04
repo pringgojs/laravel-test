@@ -5,6 +5,7 @@ use App\DataKTIGuru;
 use App\DataDetailGuru;
 use App\DataKTIGuruBackup;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Output\ConsoleOutput as Output;
 
 class CopyDataKTIGuruSeeder extends Seeder
@@ -26,6 +27,10 @@ class CopyDataKTIGuruSeeder extends Seeder
     public function run()
     {
         ini_set('memory_limit', '-1');
+        
+        DB::beginTransaction();
+        
+        $periode_usulan = "2019.2";
         $list_data_kti = DataKTIGuru::all();
         foreach ($list_data_kti as $i => $kti_guru) {
             $datakun = DataDetailGuru::where('id_akun', $kti_guru->id_akun)->first();
@@ -43,11 +48,12 @@ class CopyDataKTIGuruSeeder extends Seeder
             $backup->nilai_kti = $kti_guru->nilai_kti;
             $backup->ket_tambahan = $kti_guru->ket_tambahan;
             $backup->sedang_diperiksa = $kti_guru->sedang_diperiksa;
-            $backup->periode_usulan = '2019.1';
+            $backup->periode_usulan = $periode_usulan;
             $backup->save();
 
             $this->output->writeln('<info>'. $i  . ' ' . $nip.' ' . $backup->id_kti.'</info>');
-
         }
+        
+        DB::commit();
     }
 }

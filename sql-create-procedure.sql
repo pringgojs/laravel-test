@@ -1,0 +1,15 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_total_nilai`()
+BEGIN
+update 	data_penilaian_final_pak_guru
+	set 		data_penilaian_final_pak_guru.pendidikan_hasil = data_penilaian_final_pak_guru.pendidikan_lama + data_penilaian_final_pak_guru.pendidikan_baru,
+				data_penilaian_final_pak_guru.diklat_hasil = data_penilaian_final_pak_guru.diklat_lama + data_penilaian_final_pak_guru.diklat_baru,
+				data_penilaian_final_pak_guru.pembelajaran_hasil = data_penilaian_final_pak_guru.pembelajaran_lama + data_penilaian_final_pak_guru.pembelajaran_baru,
+				data_penilaian_final_pak_guru.bimbingan_hasil = data_penilaian_final_pak_guru.bimbingan_lama + data_penilaian_final_pak_guru.bimbingan_baru,
+				data_penilaian_final_pak_guru.lainnya_hasil = data_penilaian_final_pak_guru.lainnya_lama + data_penilaian_final_pak_guru.lainnya_baru,
+				data_penilaian_final_pak_guru.penunj_ijazah_hasil = data_penilaian_final_pak_guru.penunj_ijazah_lama + data_penilaian_final_pak_guru.penunj_ijazah_baru,
+				data_penilaian_final_pak_guru.penunj_tugas_hasil = data_penilaian_final_pak_guru.penunj_tugas_lama + data_penilaian_final_pak_guru.penunj_tugas_baru,
+				data_penilaian_final_pak_guru.penunj_penghargaan_hasil = data_penilaian_final_pak_guru.penunj_penghargaan_lama + data_penilaian_final_pak_guru.penunj_penghargaan_baru,
+				data_penilaian_final_pak_guru.jumlah_penunjang_lama = data_penilaian_final_pak_guru.penunj_ijazah_lama + data_penilaian_final_pak_guru.penunj_tugas_lama + data_penilaian_final_pak_guru.penunj_penghargaan_lama,
+				data_penilaian_final_pak_guru.jumlah_penunjang_baru = data_penilaian_final_pak_guru.penunj_ijazah_baru + data_penilaian_final_pak_guru.penunj_tugas_baru + data_penilaian_final_pak_guru.penunj_penghargaan_baru,
+				data_penilaian_final_pak_guru.jumlah_penunjang_hasil = data_penilaian_final_pak_guru.penunj_ijazah_lama + data_penilaian_final_pak_guru.penunj_tugas_lama + data_penilaian_final_pak_guru.penunj_penghargaan_lama + data_penilaian_final_pak_guru.penunj_ijazah_baru + data_penilaian_final_pak_guru.penunj_tugas_baru + data_penilaian_final_pak_guru.penunj_penghargaan_baru;
+END
