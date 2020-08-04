@@ -1,5 +1,5 @@
 -- Create syntax for VIEW 'view_akun_admin'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_akun_admin`
+CREATE VIEW `view_akun_admin`
 AS SELECT
    `data_akun`.`id_akun` AS `id_akun`,
    `data_akun`.`username` AS `username`,
@@ -10,7 +10,7 @@ AS SELECT
 FROM (`data_akun` join `data_detail_admin` on((`data_akun`.`id_akun` = `data_detail_admin`.`id_akun`)));
 
 -- Create syntax for VIEW 'view_akun_guru'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_akun_guru`
+CREATE VIEW `view_akun_guru`
 AS SELECT
    `data_akun`.`id_akun` AS `id_akun`,
    `data_akun`.`username` AS `username`,
@@ -44,7 +44,7 @@ AS SELECT
 FROM (`data_akun` join `data_detail_guru` on((`data_akun`.`id_akun` = `data_detail_guru`.`id_akun`)));
 
 -- Create syntax for VIEW 'view_akun_penilai'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_akun_penilai`
+CREATE VIEW `view_akun_penilai`
 AS SELECT
    `data_akun`.`id_akun` AS `id_akun`,
    `data_akun`.`username` AS `username`,
@@ -54,8 +54,15 @@ AS SELECT
    `data_detail_penilai`.`id_detail_penilai` AS `id_detail_penilai`
 FROM (`data_akun` join `data_detail_penilai` on((`data_akun`.`id_akun` = `data_detail_penilai`.`id_akun`)));
 
+
+-- Create syntax for VIEW 'view_versi_usulan'
+CREATE VIEW `view_versi_usulan`
+AS SELECT
+   `transaksi_usulan`.`id_usulan_pertama` AS `id_usulan_pertama`,max(`transaksi_usulan`.`usul_ke`) AS `usul_ke`
+FROM `transaksi_usulan` group by `transaksi_usulan`.`id_usulan_pertama`;
+
 -- Create syntax for VIEW 'view_histori_usulan'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_histori_usulan`
+CREATE VIEW `view_histori_usulan`
 AS SELECT
    `transaksi_usulan`.`id_usulan` AS `id_usulan`,
    `transaksi_usulan`.`id_usulan_pertama` AS `id_usulan_pertama`,
@@ -69,8 +76,14 @@ AS SELECT
    `transaksi_usulan`.`status` AS `status`
 FROM (`data_pak_guru` join `transaksi_usulan` on((`data_pak_guru`.`id_pak` = `transaksi_usulan`.`id_pak`)));
 
+-- Create syntax for VIEW 'view_unit_kerja_sekarang'
+CREATE VIEW `view_unit_kerja_sekarang`
+AS SELECT
+   `data_unit_kerja`.`id_akun` AS `id_akun`,max(`data_unit_kerja`.`id_unit_kerja`) AS `id_unit_kerja_sekarang`
+FROM `data_unit_kerja` group by `data_unit_kerja`.`id_akun`;
+
 -- Create syntax for VIEW 'view_histori_usulan_mutakhir'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_histori_usulan_mutakhir`
+CREATE VIEW `view_histori_usulan_mutakhir`
 AS SELECT
    `histori`.`id_usulan` AS `id_usulan`,
    `histori`.`id_usulan_pertama` AS `id_usulan_pertama`,
@@ -85,27 +98,17 @@ AS SELECT
 FROM (`view_histori_usulan` `histori` join `view_versi_usulan` `versi` on(((`histori`.`id_usulan_pertama` = `versi`.`id_usulan_pertama`) and (`histori`.`usul_ke` = `versi`.`usul_ke`))));
 
 -- Create syntax for VIEW 'view_lokasi_entri_usulan'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_lokasi_entri_usulan`
+CREATE VIEW `view_lokasi_entri_usulan`
 AS SELECT
    `view_unit_kerja_sekarang`.`id_akun` AS `id_akun`,
    `ref_provinsi`.`nama_provinsi` AS `nama_provinsi`
 FROM ((`view_unit_kerja_sekarang` join `data_unit_kerja` on((`data_unit_kerja`.`id_unit_kerja` = `view_unit_kerja_sekarang`.`id_unit_kerja_sekarang`))) join `ref_provinsi` on((`data_unit_kerja`.`id_provinsi` = `ref_provinsi`.`id_provinsi`)));
 
 -- Create syntax for VIEW 'view_lokasi_guru_sekarang'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_lokasi_guru_sekarang`
+CREATE VIEW `view_lokasi_guru_sekarang`
 AS SELECT
    `view_unit_kerja_sekarang`.`id_akun` AS `id_akun`,
    `ref_provinsi`.`nama_provinsi` AS `nama_provinsi`
 FROM ((`view_unit_kerja_sekarang` join `data_unit_kerja` on((`data_unit_kerja`.`id_unit_kerja` = `view_unit_kerja_sekarang`.`id_unit_kerja_sekarang`))) join `ref_provinsi` on((`data_unit_kerja`.`id_provinsi` = `ref_provinsi`.`id_provinsi`)));
 
--- Create syntax for VIEW 'view_unit_kerja_sekarang'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_unit_kerja_sekarang`
-AS SELECT
-   `data_unit_kerja`.`id_akun` AS `id_akun`,max(`data_unit_kerja`.`id_unit_kerja`) AS `id_unit_kerja_sekarang`
-FROM `data_unit_kerja` group by `data_unit_kerja`.`id_akun`;
 
--- Create syntax for VIEW 'view_versi_usulan'
-CREATE ALGORITHM=UNDEFINED DEFINER=`simpak_okt`@`%` SQL SECURITY DEFINER VIEW `view_versi_usulan`
-AS SELECT
-   `transaksi_usulan`.`id_usulan_pertama` AS `id_usulan_pertama`,max(`transaksi_usulan`.`usul_ke`) AS `usul_ke`
-FROM `transaksi_usulan` group by `transaksi_usulan`.`id_usulan_pertama`;
