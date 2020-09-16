@@ -30,6 +30,7 @@ class CopyDataKTIGuruSeeder extends Seeder
         
         DB::beginTransaction();
         
+        /** Periode usulan diganti setiap waktu */
         $periode_usulan = "2019.2";
         $list_data_kti = DataKTIGuru::all();
         foreach ($list_data_kti as $i => $kti_guru) {
