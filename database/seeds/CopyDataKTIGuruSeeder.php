@@ -31,7 +31,7 @@ class CopyDataKTIGuruSeeder extends Seeder
         DB::beginTransaction();
         
         /** Periode usulan diganti setiap waktu */
-        $periode_usulan = "2019.2";
+        $periode_usulan = "2020.1";
         $list_data_kti = DataKTIGuru::all();
         foreach ($list_data_kti as $i => $kti_guru) {
             $datakun = DataDetailGuru::where('id_akun', $kti_guru->id_akun)->first();
