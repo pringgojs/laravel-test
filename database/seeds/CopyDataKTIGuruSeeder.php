@@ -35,7 +35,7 @@ class CopyDataKTIGuruSeeder extends Seeder
         $list_data_kti = DataKTIGuru::all();
         foreach ($list_data_kti as $i => $kti_guru) {
             $datakun = DataDetailGuru::where('id_akun', $kti_guru->id_akun)->first();
-            $nip = $datakun ? $datakun->nip : null;
+            $nip = $datakun ? trim($datakun->nip) : null;
 
             $backup = new DataKTIGuruBackup;
             $backup->id_kti = $kti_guru->id_kti;
