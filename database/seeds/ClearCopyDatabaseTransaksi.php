@@ -24,7 +24,7 @@ class ClearCopyDatabaseTransaksi extends Seeder
      */
     public function run()
     {
-        ini_set('memory_limit', '-1');
+        // ini_set('memory_limit', '-1');
 
         $list_tabel_transaksi = [
             'transaksi_detail_usulan',
