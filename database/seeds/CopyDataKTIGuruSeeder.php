@@ -27,11 +27,18 @@ class CopyDataKTIGuruSeeder extends Seeder
     public function run()
     {
         // ini_set('memory_limit', '-1');
-        
+
         DB::beginTransaction();
-        
+
         /** Periode usulan diganti setiap waktu */
-        $periode_usulan = "2020.1";
+        $default_periode = '2020.1';
+        echo "masukkan periode usulan sebelumya ({$default_periode}): ";
+        $input = trim(fgets(STDIN));
+        $periode_usulan = $input;
+        if ($input == '') {
+            $periode_usulan = $default_periode;
+        }
+        // $periode_usulan = "2020.1";
         $list_data_kti = DataKTIGuru::all();
         foreach ($list_data_kti as $i => $kti_guru) {
             $datakun = DataDetailGuru::where('id_akun', $kti_guru->id_akun)->first();
@@ -52,9 +59,9 @@ class CopyDataKTIGuruSeeder extends Seeder
             $backup->periode_usulan = $periode_usulan;
             $backup->save();
 
-            $this->output->writeln('<info>'. $i  . ' ' . $nip.' ' . $backup->id_kti.'</info>');
+            $this->output->writeln('<info>' . $i  . ' ' . $nip . ' ' . $backup->id_kti . '</info>');
         }
-        
+
         DB::commit();
     }
 }
