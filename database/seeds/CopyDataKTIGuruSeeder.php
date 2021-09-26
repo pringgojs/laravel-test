@@ -31,8 +31,8 @@ class CopyDataKTIGuruSeeder extends Seeder
         DB::beginTransaction();
 
         /** Periode usulan diganti setiap waktu */
-        $default_periode = '2020.1';
-        echo "masukkan periode usulan sebelumya ({$default_periode}): ";
+        $default_periode = date('Y') . '.1';
+        echo "masukkan periode usulan sebelumya (cth: 2020.1) ({$default_periode}): ";
         $input = trim(fgets(STDIN));
         $periode_usulan = $input;
         if ($input == '') {

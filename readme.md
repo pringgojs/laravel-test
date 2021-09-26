@@ -8,8 +8,9 @@
 
 1. `php artisan migrate`
 2. `php artisan db:seed --class=CopyDataKTIGuruSeeder`
-3. `php artisan db:seed --class=ClearCopyDatabaseTransaksi` pada step ini jalankan nyalakan komentar tabel satu-satu
-4. `php artisan db:seed --class=ResetPasswordSeeder` pada step ini jalankan nyalakan komentar tabel satu-satu. Atau bisa juga semuanya
+3. masukkan periode sebelumnya misal dengan format `tahun.format` misal untuk tahun 2020 periode penilai pertama = `2020.1`
+4. `php artisan db:seed --class=ClearCopyDatabaseTransaksi` pada step ini jalankan nyalakan komentar tabel satu-satu
+5. `php artisan db:seed --class=ResetPasswordSeeder` pada step ini jalankan nyalakan komentar tabel satu-satu. Atau bisa juga semuanya
 
 # Sudah tidak perlu dijalankan
 
