@@ -53,7 +53,7 @@ class ResetPasswordSeeder extends Seeder
         foreach ($list_data_akun as $data_akun) {
             if (!$data_akun->guru) continue;
             if (!$data_akun->guru->nip) {
-                info('Nip guru tidak ada ==> '.$data_akun->id_akun);
+                info('Nip guru tidak ada ==> ' . $data_akun->id_akun);
                 continue;
             }
 
@@ -62,12 +62,12 @@ class ResetPasswordSeeder extends Seeder
 
             $data_akun->save();
 
-            $this->output->writeln('<info>------ '.++$i.'. '.$data_akun->username.' ('.$data_akun->id_akun.')</info>');
+            $this->output->writeln('<info>------ ' . ++$i . '. ' . $data_akun->username . ' (' . $data_akun->id_akun . ')</info>');
         }
         \DB::commit();
         array_push($this->total, ['total_guru' => $i]);
     }
-    
+
     # Penilai
     public function resetPenilai()
     {
@@ -80,15 +80,14 @@ class ResetPasswordSeeder extends Seeder
             if (!$data_akun->penilai) continue;
 
             if (!$data_akun->penilai->nip) {
-                info('Nip penilai tidak ada ==> '.$data_akun->id_akun);
+                info('Nip penilai tidak ada ==> ' . $data_akun->id_akun);
                 continue;
             }
 
-            $data_akun->username = $data_akun->penilai->nip;
-            $data_akun->password = str_random(10);
+            $data_akun->username = $data_akun->penilai->nip . 'p';
+            $data_akun->password = $data_akun->penilai->nip;
             $data_akun->save();
-            $this->output->writeln('<info>------ '.++$i.'. '.$data_akun->username.'  ('.$data_akun->id_akun.')</info>');
-
+            $this->output->writeln('<info>------ ' . ++$i . '. ' . $data_akun->username . '  (' . $data_akun->id_akun . ')</info>');
         }
         \DB::commit();
         array_push($this->total, ['total_penilai' => $i]);
@@ -106,20 +105,19 @@ class ResetPasswordSeeder extends Seeder
             if (!$data_akun->verifikatorPenilai) continue;
 
             if (!$data_akun->verifikatorPenilai->nip) {
-                info('Nip verif penilai tidak ada ==> '.$data_akun->id_akun);
+                info('Nip verif penilai tidak ada ==> ' . $data_akun->id_akun);
                 continue;
             }
 
 
-            $data_akun->username = $data_akun->verifikatorPenilai->nip;
-            $data_akun->password = str_random(10);
+            $data_akun->username = $data_akun->verifikatorPenilai->nip . 'vp';
+            $data_akun->password = $data_akun->verifikatorPenilai->nip;
             $data_akun->save();
 
-            $this->output->writeln('<info>------ '.++$i.'. '.$data_akun->username.' ('.$data_akun->id_akun.')</info>');
+            $this->output->writeln('<info>------ ' . ++$i . '. ' . $data_akun->username . ' (' . $data_akun->id_akun . ')</info>');
         }
 
         \DB::commit();
         array_push($this->total, ['total_vefif_penilai' => $i]);
     }
-
 }
