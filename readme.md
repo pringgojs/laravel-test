@@ -18,3 +18,9 @@
 6. `php artisan db:seed --class=JenisPKBDetailSeeder`
 7. `php artisan db:seed --class=RefAlasanSeeder`
 8. `php artisan db:seed --class=NomerAlasanPenolakanSeeder`
+
+## catatan tambahan waktu dev simpak
+ketika import dump database dari server biasanya ada definer 
+> DEFINER=`latihan`@`%`
+contoh seperti itu di sqlnya, bisa di hapus saja tulisan tersebut, supaya tidak ada error ketika import sql.
+error terjadi karena definer tidak tersedia di local kita, jadi selain di hapus cara memperbaiki yaitu di buatkan user tersebut di local dan database tersebut di import ke dalam skema user tersebut. tapi lebih cepat menghapus definer tadi daripada membuat user baru
