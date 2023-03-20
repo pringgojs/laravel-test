@@ -50,13 +50,13 @@ class ClearCopyDatabaseTransaksi extends Seeder
          * 2. tabel asa kemudian di bersihkan
          * 
         */
-        $pak_guru = DataPakGuru::where('periode_pangkat', '0000-00-00')
+        $pak_guru = DataPakGuru::where('periode_pangkat', null)
             ->update(['periode_pangkat' => null]);
-        $pak_guru = DataPakGuru::where('periode_jabatan', '0000-00-00')
+        $pak_guru = DataPakGuru::where('periode_jabatan', null)
             ->update(['periode_jabatan' => null]);
-        $pak_guru = DataPenilaianFinalPakGuru::where('periode_pangkat', '0000-00-00')
+        $pak_guru = DataPenilaianFinalPakGuru::where('periode_pangkat', null)
             ->update(['periode_pangkat' => null]);
-        $pak_guru = DataPenilaianFinalPakGuru::where('periode_jabatan', '0000-00-00')
+        $pak_guru = DataPenilaianFinalPakGuru::where('periode_jabatan', null)
             ->update(['periode_jabatan' => null]);
 
         foreach ($list_tabel_transaksi as $tabel) {
